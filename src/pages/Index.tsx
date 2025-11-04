@@ -80,7 +80,7 @@ const Index = () => {
       <main className={isTransitioning ? 'opacity-0 transition-opacity duration-150' : 'opacity-100 transition-opacity duration-150'}>
         {activeSection === 'home' && <Home onNavigate={handleSectionChange} />}
         {activeSection === 'catalog' && <Catalog products={data.products} onNavigateToAppointment={handleNavigateToAppointment} />}
-        {activeSection === 'services' && <Services services={data.services} />}
+        {activeSection === 'services' && <Services services={data.services} onNavigateToAppointment={handleNavigateToAppointment} />}
         {activeSection === 'about' && <About articles={data.articles} />}
         {activeSection === 'articles' && <Articles articles={data.articles} />}
       </main>

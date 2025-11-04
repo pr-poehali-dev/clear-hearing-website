@@ -5,9 +5,10 @@ import { Service } from '@/types';
 
 interface ServicesProps {
   services: Service[];
+  onNavigateToAppointment?: () => void;
 }
 
-export const Services = ({ services }: ServicesProps) => {
+export const Services = ({ services, onNavigateToAppointment }: ServicesProps) => {
   return (
     <div className="py-8 sm:py-12 px-4 animate-fade-in">
       <div className="container mx-auto">
@@ -48,7 +49,13 @@ export const Services = ({ services }: ServicesProps) => {
                 <CardFooter>
                   <Button
                     className="w-full"
-                    onClick={() => window.open(service.link, '_blank')}
+                    onClick={() => {
+                      if (onNavigateToAppointment) {
+                        onNavigateToAppointment();
+                      } else if (service.link) {
+                        window.open(service.link, '_blank');
+                      }
+                    }}
                   >
                     <Icon name="Calendar" size={18} className="mr-2" />
                     Записаться на приём

@@ -10,35 +10,33 @@ interface HomeProps {
 export const Home = ({ onNavigate }: HomeProps) => {
   return (
     <div>
-      <section className="py-12 sm:py-20 px-4 bg-gradient-to-b from-accent/30 to-white animate-fade-in">
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-b from-primary/5 via-accent/20 to-white animate-fade-in">
         <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-foreground animate-scale-in">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-5 sm:mb-7 text-foreground animate-scale-in leading-tight tracking-tight">
             Верните радость слышать мир
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>Современные слуховые аппараты высокого качества. Индивидуальный подбор, настройка и сервисное обслуживание. Помогаем людям слышать!</p>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>Современные слуховые аппараты высокого качества. Индивидуальный подбор, настройка и сервисное обслуживание.</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <Button
               size="lg"
               onClick={() => onNavigate('catalog')}
-              className="bg-primary hover:bg-primary/90 text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 text-base px-8 py-6 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
             >
-              <Icon name="ShoppingBag" size={20} className="mr-2" />
               Смотреть каталог
             </Button>
             <Button
               size="lg"
               variant="outline"
               onClick={() => onNavigate('services')}
-              className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto"
+              className="text-base px-8 py-6 rounded-xl font-medium border-2 hover:bg-accent/50 transition-all w-full sm:w-auto"
             >
-              <Icon name="Stethoscope" size={20} className="mr-2" />
               Наши услуги
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-10 sm:py-16 px-4 bg-white">
+      <section className="py-12 sm:py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <Tabs defaultValue="delivery" className="w-full">
             <TabsList className="grid w-full grid-cols-2 mb-6 sm:mb-8">

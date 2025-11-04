@@ -85,14 +85,14 @@ const Index = () => {
         {activeSection === 'articles' && <Articles articles={data.articles} />}
       </main>
 
-      <footer className="bg-accent/30 py-8 mt-20">
+      <footer className="bg-muted/50 py-12 mt-24 border-t border-border/50">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground mb-4">© 2025 Ясный слух. Все права защищены.</p>
+          <p className="text-muted-foreground mb-4 text-sm">© 2025 Ясный слух. Все права защищены.</p>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setShowAdminLogin(true)}
-            className="text-xs"
+            className="text-xs opacity-50 hover:opacity-100 transition-opacity"
           >
             <Icon name="Lock" size={14} className="mr-1" />
             Админ-панель

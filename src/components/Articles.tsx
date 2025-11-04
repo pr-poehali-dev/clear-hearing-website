@@ -20,9 +20,9 @@ export const Articles = ({ articles }: ArticlesProps) => {
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   
   return (
-    <div className="py-8 sm:py-12 px-4 animate-fade-in">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center animate-scale-in">Статьи</h2>
+    <div className="py-12 sm:py-16 px-4 animate-fade-in bg-background">
+      <div className="container mx-auto max-w-5xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-8 sm:mb-12 text-center animate-scale-in tracking-tight">Статьи</h2>
         
         {publishedArticles.length === 0 ? (
           <div className="text-center py-12 sm:py-20 animate-fade-in">
@@ -32,22 +32,22 @@ export const Articles = ({ articles }: ArticlesProps) => {
             </p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
             {publishedArticles.map((article, index) => (
               <Card 
                 key={article.id} 
-                className="hover:shadow-lg transition-shadow hover-scale animate-fade-in cursor-pointer"
+                className="hover:shadow-2xl transition-all duration-300 border-border/50 animate-fade-in cursor-pointer group overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => setSelectedArticle(article)}
               >
-                <CardHeader>
-                  <CardTitle className="text-xl">{article.title}</CardTitle>
+                <CardHeader className="p-6 pb-4">
+                  <CardTitle className="text-2xl font-semibold tracking-tight group-hover:text-primary transition-colors">{article.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line line-clamp-4">
+                <CardContent className="px-6 pb-6">
+                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line line-clamp-4 mb-4">
                     {article.description}
                   </p>
-                  <Button variant="ghost" className="mt-4 w-full" onClick={() => setSelectedArticle(article)}>
+                  <Button variant="ghost" className="mt-2 w-full group-hover:bg-accent/80 transition-colors" onClick={(e) => { e.stopPropagation(); setSelectedArticle(article); }}>
                     <Icon name="BookOpen" size={18} className="mr-2" />
                     Читать полностью
                   </Button>

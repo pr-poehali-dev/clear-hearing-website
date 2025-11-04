@@ -10,9 +10,9 @@ export const About = ({ articles }: AboutProps) => {
   const publishedArticles = articles.filter(article => article.published && article.type === 'about');
   
   return (
-    <div className="py-8 sm:py-12 px-4 animate-fade-in">
-      <div className="container mx-auto max-w-4xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center animate-scale-in">О компании</h2>
+    <div className="py-12 sm:py-16 px-4 animate-fade-in bg-background">
+      <div className="container mx-auto max-w-5xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-8 sm:mb-12 text-center animate-scale-in tracking-tight">О компании</h2>
         
         {publishedArticles.length === 0 ? (
           <div className="text-center py-12 sm:py-20 animate-fade-in">
@@ -22,18 +22,18 @@ export const About = ({ articles }: AboutProps) => {
             </p>
           </div>
         ) : (
-          <div className="space-y-4 sm:space-y-6">
+          <div className="space-y-6 sm:space-y-8">
             {publishedArticles.map((article, index) => (
               <Card 
                 key={article.id} 
-                className="hover:shadow-lg transition-shadow hover-scale animate-fade-in"
+                className="hover:shadow-2xl transition-all duration-300 border-border/50 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader>
-                  <CardTitle className="text-2xl">{article.title}</CardTitle>
+                <CardHeader className="p-8 pb-4">
+                  <CardTitle className="text-3xl font-semibold tracking-tight">{article.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                <CardContent className="px-8 pb-8">
+                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-base">
                     {article.description}
                   </p>
                 </CardContent>

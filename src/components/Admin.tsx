@@ -79,7 +79,7 @@ export const Admin = ({ onClose }: AdminProps) => {
     toast.success('Услуга удалена');
   };
 
-  const handleAddArticle = () => {
+  const handleAddArticle = (type: 'about' | 'blog') => {
     if (!newArticle.title || !newArticle.description) {
       toast.error('Заполните название и описание');
       return;
@@ -89,12 +89,13 @@ export const Admin = ({ onClose }: AdminProps) => {
       title: newArticle.title,
       description: newArticle.description,
       published: false,
+      type,
     };
     const updatedData = { ...data, articles: [...data.articles, article] };
     saveData(updatedData);
     setData(updatedData);
     setNewArticle({});
-    toast.success('Статья добавлена');
+    toast.success(type === 'about' ? 'Информация об компании добавлена' : 'Статья добавлена');
   };
 
   const handleDeleteArticle = (id: string) => {
@@ -171,10 +172,11 @@ export const Admin = ({ onClose }: AdminProps) => {
         </div>
 
         <Tabs defaultValue="catalog" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="catalog">Каталог</TabsTrigger>
             <TabsTrigger value="services">Услуги</TabsTrigger>
             <TabsTrigger value="about">О компании</TabsTrigger>
+            <TabsTrigger value="articles">Статьи</TabsTrigger>
           </TabsList>
 
           <TabsContent value="catalog" className="space-y-4">
@@ -295,6 +297,60 @@ export const Admin = ({ onClose }: AdminProps) => {
           <TabsContent value="about" className="space-y-4">
             <Card>
               <CardHeader>
+                <CardTitle>Добавить информацию о компании</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <Input
+                  placeholder="Заголовок"
+                  value={newArticle.title || ''}
+                  onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })}
+                />
+                <Textarea
+                  placeholder="Текст"
+                  rows={6}
+                  value={newArticle.description || ''}
+                  onChange={(e) => setNewArticle({ ...newArticle, description: e.target.value })}
+                />
+                <Button onClick={() => handleAddArticle('about')} className="w-full">
+                  <Icon name="Plus" size={18} className="mr-2" />
+                  Добавить
+                </Button>
+              </CardContent>
+            </Card>
+
+            <div className="space-y-4">
+              {data.articles.filter(a => a.type === 'about').map((article) => (
+                <Card key={article.id} className={article.published ? 'border-primary' : ''}>
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between gap-2">
+                      <span className="flex-1">{article.title}</span>
+                      <div className="flex gap-2">
+                        <Button
+                          size="sm"
+                          variant={article.published ? "default" : "outline"}
+                          onClick={() => handleTogglePublish(article.id)}
+                        >
+                          <Icon name={article.published ? "Eye" : "EyeOff"} size={16} className="mr-1" />
+                          {article.published ? "Опубликовано" : "Черновик"}
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="destructive"
+                          onClick={() => handleDeleteArticle(article.id)}
+                        >
+                          <Icon name="Trash2" size={16} />
+                        </Button>
+                      </div>
+                    </CardTitle>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="articles" className="space-y-4">
+            <Card>
+              <CardHeader>
                 <CardTitle>Добавить статью</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
@@ -304,12 +360,12 @@ export const Admin = ({ onClose }: AdminProps) => {
                   onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })}
                 />
                 <Textarea
-                  placeholder="Описание"
+                  placeholder="Содержание статьи"
                   rows={6}
                   value={newArticle.description || ''}
                   onChange={(e) => setNewArticle({ ...newArticle, description: e.target.value })}
                 />
-                <Button onClick={handleAddArticle} className="w-full">
+                <Button onClick={() => handleAddArticle('blog')} className="w-full">
                   <Icon name="Plus" size={18} className="mr-2" />
                   Добавить статью
                 </Button>
@@ -317,7 +373,7 @@ export const Admin = ({ onClose }: AdminProps) => {
             </Card>
 
             <div className="space-y-4">
-              {data.articles.map((article) => (
+              {data.articles.filter(a => a.type === 'blog').map((article) => (
                 <Card key={article.id} className={article.published ? 'border-primary' : ''}>
                   <CardHeader>
                     <CardTitle className="flex items-center justify-between gap-2">

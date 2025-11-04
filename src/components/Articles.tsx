@@ -2,27 +2,27 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { Article } from '@/types';
 
-interface AboutProps {
+interface ArticlesProps {
   articles: Article[];
 }
 
-export const About = ({ articles }: AboutProps) => {
-  const publishedArticles = articles.filter(article => article.published && article.type === 'about');
+export const Articles = ({ articles }: ArticlesProps) => {
+  const publishedArticles = articles.filter(article => article.published && article.type === 'blog');
   
   return (
     <div className="py-12 px-4 animate-fade-in">
       <div className="container mx-auto max-w-4xl">
-        <h2 className="text-4xl font-bold mb-8 text-center animate-scale-in">О компании</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center animate-scale-in">Статьи</h2>
         
         {publishedArticles.length === 0 ? (
           <div className="text-center py-20 animate-fade-in">
-            <Icon name="FileText" className="text-muted-foreground mx-auto mb-4" size={64} />
+            <Icon name="BookOpen" className="text-muted-foreground mx-auto mb-4" size={64} />
             <p className="text-xl text-muted-foreground">
-              Информация пока не добавлена. Её можно добавить через админ-панель.
+              Статьи пока не добавлены. Их можно добавить через админ-панель.
             </p>
           </div>
         ) : (
-          <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {publishedArticles.map((article, index) => (
               <Card 
                 key={article.id} 
@@ -30,10 +30,10 @@ export const About = ({ articles }: AboutProps) => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <CardTitle className="text-2xl">{article.title}</CardTitle>
+                  <CardTitle className="text-xl">{article.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                  <p className="text-muted-foreground leading-relaxed whitespace-pre-line line-clamp-4">
                     {article.description}
                   </p>
                 </CardContent>

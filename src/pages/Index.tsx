@@ -4,6 +4,7 @@ import { Home } from '@/components/Home';
 import { Catalog } from '@/components/Catalog';
 import { Services } from '@/components/Services';
 import { About } from '@/components/About';
+import { Articles } from '@/components/Articles';
 import { Admin } from '@/components/Admin';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -58,7 +59,7 @@ const Index = () => {
         {activeSection === 'catalog' && <Catalog products={data.products} />}
         {activeSection === 'services' && <Services services={data.services} />}
         {activeSection === 'about' && <About articles={data.articles} />}
-        {activeSection === 'articles' && <About articles={data.articles} />}
+        {activeSection === 'articles' && <Articles articles={data.articles} />}
       </main>
 
       <footer className="bg-accent/30 py-8 mt-20">

@@ -11,10 +11,10 @@ export const Catalog = ({ products }: CatalogProps) => {
   return (
     <div className="py-12 px-4 animate-fade-in">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold mb-8 text-center">Каталог слуховых аппаратов</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center animate-scale-in">Каталог слуховых аппаратов</h2>
         
         {products.length === 0 ? (
-          <div className="text-center py-20">
+          <div className="text-center py-20 animate-fade-in">
             <Icon name="Package" className="text-muted-foreground mx-auto mb-4" size={64} />
             <p className="text-xl text-muted-foreground">
               Каталог пока пуст. Товары можно добавить через админ-панель.
@@ -22,8 +22,12 @@ export const Catalog = ({ products }: CatalogProps) => {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <Card key={product.id} className="hover:shadow-lg transition-shadow hover-scale">
+            {products.map((product, index) => (
+              <Card 
+                key={product.id} 
+                className="hover:shadow-lg transition-all hover-scale animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                 <CardHeader>
                   <div className="w-full h-48 bg-accent rounded-md mb-4 overflow-hidden">
                     {product.imageUrl ? (

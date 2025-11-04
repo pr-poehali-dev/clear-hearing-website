@@ -20,6 +20,7 @@ export interface Article {
   title: string;
   description: string;
   published: boolean;
+  type: 'about' | 'blog';
 }
 
 export interface SiteData {

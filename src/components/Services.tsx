@@ -30,7 +30,7 @@ export const Services = ({ services }: ServicesProps) => {
                       <img
                         src={service.imageUrl}
                         alt={service.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">

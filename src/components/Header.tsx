@@ -21,8 +21,12 @@ export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
     <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between flex-wrap gap-4">
-          <div className="flex items-center gap-2">
-            <Icon name="Ear" className="text-primary" size={32} />
+          <div className="flex items-center gap-3">
+            <img 
+              src="https://cdn.poehali.dev/files/74afe177-1fa0-4047-aa20-52fa8d2c4683.png" 
+              alt="Ясный слух" 
+              className="h-12 w-auto"
+            />
             <h1 className="text-2xl font-bold text-primary">Ясный слух</h1>
           </div>
 

@@ -19,6 +19,7 @@ export interface Article {
   id: string;
   title: string;
   description: string;
+  published: boolean;
 }
 
 export interface SiteData {

@@ -38,41 +38,6 @@ export const Home = ({ onNavigate }: HomeProps) => {
           </div>
         </div>
       </section>
-
-      <section className="py-16 px-4">
-        <div className="container mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Почему выбирают нас</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon name="Award" className="text-primary" size={32} />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">15+ лет опыта</h4>
-              <p className="text-muted-foreground">
-                Профессиональная помощь в подборе и настройке слуховых аппаратов
-              </p>
-            </div>
-            <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon name="HeartHandshake" className="text-primary" size={32} />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Индивидуальный подход</h4>
-              <p className="text-muted-foreground">
-                Учитываем особенности слуха каждого клиента
-              </p>
-            </div>
-            <div className="text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon name="Wrench" className="text-primary" size={32} />
-              </div>
-              <h4 className="text-xl font-semibold mb-3">Сервис и поддержка</h4>
-              <p className="text-muted-foreground">
-                Гарантийное и постгарантийное обслуживание
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

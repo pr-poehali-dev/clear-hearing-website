@@ -88,6 +88,7 @@ export const Admin = ({ onClose }: AdminProps) => {
       id: Date.now().toString(),
       title: newArticle.title,
       description: newArticle.description,
+      published: false,
     };
     const updatedData = { ...data, articles: [...data.articles, article] };
     saveData(updatedData);
@@ -101,6 +102,19 @@ export const Admin = ({ onClose }: AdminProps) => {
     saveData(updatedData);
     setData(updatedData);
     toast.success('Статья удалена');
+  };
+
+  const handleTogglePublish = (id: string) => {
+    const updatedData = {
+      ...data,
+      articles: data.articles.map(a =>
+        a.id === id ? { ...a, published: !a.published } : a
+      ),
+    };
+    saveData(updatedData);
+    setData(updatedData);
+    const article = updatedData.articles.find(a => a.id === id);
+    toast.success(article?.published ? 'Статья опубликована' : 'Статья снята с публикации');
   };
 
   const handleExport = () => {
@@ -304,17 +318,27 @@ export const Admin = ({ onClose }: AdminProps) => {
 
             <div className="space-y-4">
               {data.articles.map((article) => (
-                <Card key={article.id}>
+                <Card key={article.id} className={article.published ? 'border-primary' : ''}>
                   <CardHeader>
-                    <CardTitle className="flex items-center justify-between">
-                      {article.title}
-                      <Button
-                        size="sm"
-                        variant="destructive"
-                        onClick={() => handleDeleteArticle(article.id)}
-                      >
-                        <Icon name="Trash2" size={16} />
-                      </Button>
+                    <CardTitle className="flex items-center justify-between gap-2">
+                      <span className="flex-1">{article.title}</span>
+                      <div className="flex gap-2">
+                        <Button
+                          size="sm"
+                          variant={article.published ? "default" : "outline"}
+                          onClick={() => handleTogglePublish(article.id)}
+                        >
+                          <Icon name={article.published ? "Eye" : "EyeOff"} size={16} className="mr-1" />
+                          {article.published ? "Опубликовано" : "Черновик"}
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="destructive"
+                          onClick={() => handleDeleteArticle(article.id)}
+                        >
+                          <Icon name="Trash2" size={16} />
+                        </Button>
+                      </div>
                     </CardTitle>
                   </CardHeader>
                 </Card>

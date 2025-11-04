@@ -87,7 +87,7 @@ const Index = () => {
 
       <footer className="bg-accent/30 py-8 mt-20">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground mb-4">© 2024 Ясный слух. Все права защищены.</p>
+          <p className="text-muted-foreground mb-4">© 2025 Ясный слух. Все права защищены.</p>
           <Button
             variant="ghost"
             size="sm"

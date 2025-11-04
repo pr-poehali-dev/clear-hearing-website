@@ -10,17 +10,17 @@ interface HomeProps {
 export const Home = ({ onNavigate }: HomeProps) => {
   return (
     <div>
-      <section className="py-20 px-4 bg-gradient-to-b from-accent/30 to-white animate-fade-in">
+      <section className="py-12 sm:py-20 px-4 bg-gradient-to-b from-accent/30 to-white animate-fade-in">
         <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="text-5xl font-bold mb-6 text-foreground animate-scale-in">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-foreground animate-scale-in">
             Верните радость слышать мир
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>Современные слуховые аппараты высокого качества. Индивидуальный подбор, настройка и сервисное обслуживание. Помогаем людям слышать!</p>
-          <div className="flex gap-4 justify-center flex-wrap animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>Современные слуховые аппараты высокого качества. Индивидуальный подбор, настройка и сервисное обслуживание. Помогаем людям слышать!</p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <Button
               size="lg"
               onClick={() => onNavigate('catalog')}
-              className="bg-primary hover:bg-primary/90 text-lg px-8 hover-scale"
+              className="bg-primary hover:bg-primary/90 text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto"
             >
               <Icon name="ShoppingBag" size={20} className="mr-2" />
               Смотреть каталог
@@ -29,7 +29,7 @@ export const Home = ({ onNavigate }: HomeProps) => {
               size="lg"
               variant="outline"
               onClick={() => onNavigate('services')}
-              className="text-lg px-8 hover-scale"
+              className="text-base sm:text-lg px-6 sm:px-8 hover-scale w-full sm:w-auto"
             >
               <Icon name="Stethoscope" size={20} className="mr-2" />
               Наши услуги
@@ -38,19 +38,19 @@ export const Home = ({ onNavigate }: HomeProps) => {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-white">
+      <section className="py-10 sm:py-16 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <Tabs defaultValue="delivery" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              <TabsTrigger value="delivery" className="text-lg">Доставка и оплата</TabsTrigger>
-              <TabsTrigger value="contacts" className="text-lg">Контакты</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 mb-6 sm:mb-8">
+              <TabsTrigger value="delivery" className="text-sm sm:text-base md:text-lg">Доставка и оплата</TabsTrigger>
+              <TabsTrigger value="contacts" className="text-sm sm:text-base md:text-lg">Контакты</TabsTrigger>
             </TabsList>
 
             <TabsContent value="delivery" className="animate-fade-in">
-              <div className="space-y-12">
+              <div className="space-y-8 sm:space-y-12">
                 <div>
-                  <h3 className="text-3xl font-bold mb-8 text-center">Доставка</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">Доставка</h3>
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                     <Card className="hover-scale">
                       <CardContent className="pt-6 text-center">
                         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -105,8 +105,8 @@ export const Home = ({ onNavigate }: HomeProps) => {
                 </div>
 
                 <div>
-                  <h3 className="text-3xl font-bold mb-8 text-center">Оплата</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">Оплата</h3>
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                     <Card className="hover-scale">
                       <CardContent className="pt-6 text-center">
                         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -165,7 +165,7 @@ export const Home = ({ onNavigate }: HomeProps) => {
             <TabsContent value="contacts" className="animate-fade-in">
               <Card>
                 <CardContent className="pt-6">
-                  <div className="grid md:grid-cols-2 gap-8">
+                  <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
                     <div className="space-y-4">
                       <div className="flex items-start gap-3">
                         <Icon name="MapPin" className="text-primary mt-1" size={24} />

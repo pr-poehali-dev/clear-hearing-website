@@ -21,6 +21,7 @@ export interface Article {
   description: string;
   published: boolean;
   type: 'about' | 'blog';
+  date?: string;
 }
 
 export interface SiteData {

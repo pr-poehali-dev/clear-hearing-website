@@ -1,6 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Article } from '@/types';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { useState } from 'react';
 
 interface ArticlesProps {
   articles: Article[];
@@ -8,6 +17,7 @@ interface ArticlesProps {
 
 export const Articles = ({ articles }: ArticlesProps) => {
   const publishedArticles = articles.filter(article => article.published && article.type === 'blog');
+  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   
   return (
     <div className="py-8 sm:py-12 px-4 animate-fade-in">
@@ -26,8 +36,9 @@ export const Articles = ({ articles }: ArticlesProps) => {
             {publishedArticles.map((article, index) => (
               <Card 
                 key={article.id} 
-                className="hover:shadow-lg transition-shadow hover-scale animate-fade-in"
+                className="hover:shadow-lg transition-shadow hover-scale animate-fade-in cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => setSelectedArticle(article)}
               >
                 <CardHeader>
                   <CardTitle className="text-xl">{article.title}</CardTitle>
@@ -36,12 +47,36 @@ export const Articles = ({ articles }: ArticlesProps) => {
                   <p className="text-muted-foreground leading-relaxed whitespace-pre-line line-clamp-4">
                     {article.description}
                   </p>
+                  <Button variant="ghost" className="mt-4 w-full" onClick={() => setSelectedArticle(article)}>
+                    <Icon name="BookOpen" size={18} className="mr-2" />
+                    Читать полностью
+                  </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
         )}
       </div>
+
+      <Dialog open={!!selectedArticle} onOpenChange={() => setSelectedArticle(null)}>
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">{selectedArticle?.title}</DialogTitle>
+            <DialogDescription className="text-sm text-muted-foreground">
+              {selectedArticle?.date && new Date(selectedArticle.date).toLocaleDateString('ru-RU', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </DialogDescription>
+          </DialogHeader>
+          <div className="mt-4">
+            <p className="text-foreground leading-relaxed whitespace-pre-line">
+              {selectedArticle?.description}
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

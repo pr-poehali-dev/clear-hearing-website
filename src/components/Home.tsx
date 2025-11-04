@@ -15,10 +15,7 @@ export const Home = ({ onNavigate }: HomeProps) => {
           <h2 className="text-5xl font-bold mb-6 text-foreground animate-scale-in">
             Верните радость слышать мир
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Современные слуховые аппараты высокого качества. Индивидуальный подбор, 
-            настройка и сервисное обслуживание. Помогаем людям слышать уже более 15 лет.
-          </p>
+          <p className="text-xl text-muted-foreground mb-8 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>Современные слуховые аппараты высокого качества. Индивидуальный подбор, настройка и сервисное обслуживание. Помогаем людям слышать!</p>
           <div className="flex gap-4 justify-center flex-wrap animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <Button
               size="lg"

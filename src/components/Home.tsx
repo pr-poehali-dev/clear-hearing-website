@@ -10,7 +10,7 @@ interface HomeProps {
 export const Home = ({ onNavigate }: HomeProps) => {
   return (
     <div>
-      <section className="py-16 sm:py-24 px-4 bg-gradient-to-b from-primary/5 via-accent/20 to-white animate-fade-in">
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-primary/10 via-white to-accent/10 animate-fade-in">
         <div className="container mx-auto text-center max-w-4xl">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-5 sm:mb-7 text-foreground animate-scale-in leading-tight tracking-tight">
             Верните радость слышать мир

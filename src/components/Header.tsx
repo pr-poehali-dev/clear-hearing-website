@@ -19,7 +19,7 @@ export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border/50 shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b-2 border-primary/20 shadow-md">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 sm:gap-3">

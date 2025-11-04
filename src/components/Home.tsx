@@ -50,22 +50,117 @@ export const Home = ({ onNavigate }: HomeProps) => {
             </TabsList>
 
             <TabsContent value="delivery" className="animate-fade-in">
-              <div className="space-y-8">
+              <div className="space-y-12">
                 <div>
-                  <h3 className="text-2xl font-bold mb-6">Доставка</h3>
-                  <img 
-                    src="https://cdn.poehali.dev/files/21133f91-8c75-47da-b7a8-0fdabd840c2d.png" 
-                    alt="Способы доставки"
-                    className="w-full rounded-lg shadow-lg hover-scale"
-                  />
+                  <h3 className="text-3xl font-bold mb-8 text-center">Доставка</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <Card className="hover-scale">
+                      <CardContent className="pt-6 text-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Icon name="Package" className="text-primary" size={32} />
+                        </div>
+                        <h4 className="text-xl font-semibold mb-3">Самовывоз</h4>
+                        <p className="text-muted-foreground mb-4">
+                          Вы можете забрать свой заказ в нашем центре слухопротезирования.
+                        </p>
+                        <div className="text-left space-y-2 text-sm">
+                          <p><strong>Адрес:</strong> ул. Люблинская д. 100 кор. 2, Москва</p>
+                          <p><strong>Время работы:</strong> Пн-Сб: 10:00-19:00, Вс: выходной</p>
+                          <p className="text-green-600 font-semibold">Стоимость: Бесплатно</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="hover-scale">
+                      <CardContent className="pt-6 text-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Icon name="Truck" className="text-primary" size={32} />
+                        </div>
+                        <h4 className="text-xl font-semibold mb-3">Курьер по Москве</h4>
+                        <p className="text-muted-foreground mb-4">
+                          Доставка курьером по Москве в пределах МКАД.
+                        </p>
+                        <div className="text-left space-y-2 text-sm">
+                          <p><strong>Сроки:</strong> 1-2 рабочих дня</p>
+                          <p><strong>Стоимость:</strong> 300 ₽</p>
+                          <p className="text-green-600 font-semibold">Бесплатно: При заказе от 10 000 ₽</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="hover-scale">
+                      <CardContent className="pt-6 text-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Icon name="MapPin" className="text-primary" size={32} />
+                        </div>
+                        <h4 className="text-xl font-semibold mb-3">Почта России</h4>
+                        <p className="text-muted-foreground mb-4">
+                          Доставка в любой регион России.
+                        </p>
+                        <div className="text-left space-y-2 text-sm">
+                          <p><strong>Сроки:</strong> 5-14 рабочих дней</p>
+                          <p><strong>Стоимость:</strong> от 350 ₽ (зависит от региона)</p>
+                          <p><strong>Отслеживание:</strong> Трек-номер предоставляется</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
+
                 <div>
-                  <h3 className="text-2xl font-bold mb-6">Оплата</h3>
-                  <img 
-                    src="https://cdn.poehali.dev/files/63d892bd-e56b-4118-83c6-6cb4396c5d67.png" 
-                    alt="Способы оплаты"
-                    className="w-full rounded-lg shadow-lg hover-scale"
-                  />
+                  <h3 className="text-3xl font-bold mb-8 text-center">Оплата</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <Card className="hover-scale">
+                      <CardContent className="pt-6 text-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Icon name="CreditCard" className="text-primary" size={32} />
+                        </div>
+                        <h4 className="text-xl font-semibold mb-3">Банковской картой</h4>
+                        <p className="text-muted-foreground mb-4">
+                          Оплата банковской картой только при самовывозе.
+                        </p>
+                        <div className="text-left space-y-2 text-sm">
+                          <p><strong>Самовывоз:</strong> Visa, MasterCard, МИР</p>
+                          <p><strong>Терминал:</strong> В центре слухопротезирования</p>
+                          <p className="text-green-600 font-semibold">Комиссия: Нет</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="hover-scale">
+                      <CardContent className="pt-6 text-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Icon name="Banknote" className="text-primary" size={32} />
+                        </div>
+                        <h4 className="text-xl font-semibold mb-3">Наличными</h4>
+                        <p className="text-muted-foreground mb-4">
+                          Оплата наличными при получении заказа.
+                        </p>
+                        <div className="text-left space-y-2 text-sm">
+                          <p><strong>Самовывоз:</strong> В кассу центра</p>
+                          <p><strong>Курьеру:</strong> При доставке</p>
+                          <p className="text-green-600 font-semibold">Комиссия: Нет</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="hover-scale">
+                      <CardContent className="pt-6 text-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <Icon name="FileCheck" className="text-primary" size={32} />
+                        </div>
+                        <h4 className="text-xl font-semibold mb-3">Электронные сертификаты</h4>
+                        <p className="text-muted-foreground mb-4">
+                          Прием электронных сертификатов от Социального фонда России.
+                        </p>
+                        <div className="text-left space-y-2 text-sm">
+                          <p><strong>Тип:</strong> Электронные сертификаты СФР</p>
+                          <p><strong>Оформление:</strong> В магазине с консультантом</p>
+                          <p><strong>Документы:</strong> Паспорт, сертификат</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
               </div>
             </TabsContent>

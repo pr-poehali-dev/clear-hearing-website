@@ -18,10 +18,12 @@ const ADMIN_PASSWORD = '3956Qqqq';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [prevSection, setPrevSection] = useState('home');
   const [data, setData] = useState<SiteData>(loadData());
   const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [showAdmin, setShowAdmin] = useState(false);
   const [password, setPassword] = useState('');
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,16 +48,27 @@ const Index = () => {
     setData(loadData());
   };
 
+  const handleSectionChange = (section: string) => {
+    if (section !== activeSection) {
+      setIsTransitioning(true);
+      setPrevSection(activeSection);
+      setTimeout(() => {
+        setActiveSection(section);
+        setIsTransitioning(false);
+      }, 150);
+    }
+  };
+
   if (showAdmin) {
     return <Admin onClose={handleAdminClose} />;
   }
 
   return (
     <div className="min-h-screen bg-background">
-      <Header activeSection={activeSection} onSectionChange={setActiveSection} />
+      <Header activeSection={activeSection} onSectionChange={handleSectionChange} />
       
-      <main>
-        {activeSection === 'home' && <Home onNavigate={setActiveSection} />}
+      <main className={isTransitioning ? 'opacity-0 transition-opacity duration-150' : 'opacity-100 transition-opacity duration-150'}>
+        {activeSection === 'home' && <Home onNavigate={handleSectionChange} />}
         {activeSection === 'catalog' && <Catalog products={data.products} />}
         {activeSection === 'services' && <Services services={data.services} />}
         {activeSection === 'about' && <About articles={data.articles} />}

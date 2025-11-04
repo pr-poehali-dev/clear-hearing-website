@@ -29,17 +29,15 @@ export const Catalog = ({ products }: CatalogProps) => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
-                  <div className="w-full h-48 bg-accent rounded-md mb-4 overflow-hidden">
+                  <div className="w-full h-48 bg-accent rounded-md mb-4 overflow-hidden flex items-center justify-center">
                     {product.imageUrl ? (
                       <img
                         src={product.imageUrl}
                         alt={product.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Icon name="Image" className="text-muted-foreground" size={48} />
-                      </div>
+                      <Icon name="Image" className="text-muted-foreground" size={48} />
                     )}
                   </div>
                   <CardTitle className="text-xl">{product.name}</CardTitle>

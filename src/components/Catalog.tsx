@@ -12,7 +12,7 @@ export const Catalog = ({ products, onNavigateToAppointment }: CatalogProps) => 
   return (
     <div className="py-8 sm:py-12 px-4 animate-fade-in">
       <div className="container mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center animate-scale-in">Каталог слуховых аппаратов</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center animate-scale-in">Каталог</h2>
         
         {products.length === 0 ? (
           <div className="text-center py-12 sm:py-20 animate-fade-in">

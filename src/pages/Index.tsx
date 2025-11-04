@@ -85,18 +85,37 @@ const Index = () => {
         {activeSection === 'articles' && <Articles articles={data.articles} />}
       </main>
 
-      <footer className="bg-muted/50 py-12 mt-24 border-t border-border/50">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground mb-4 text-sm">© 2025 Ясный слух. Все права защищены.</p>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setShowAdminLogin(true)}
-            className="text-xs opacity-50 hover:opacity-100 transition-opacity"
-          >
-            <Icon name="Lock" size={14} className="mr-1" />
-            Админ-панель
-          </Button>
+      <footer className="relative bg-gradient-to-br from-primary/5 to-accent/10 py-16 mt-32 border-t-2 border-primary/20">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-accent rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="mb-6">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shadow-lg">
+                <Icon name="Heart" size={24} className="text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground">Ясный слух</h3>
+            </div>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Профессиональное слухопротезирование в Москве
+            </p>
+          </div>
+          
+          <div className="border-t border-primary/20 pt-6 mt-6">
+            <p className="text-muted-foreground mb-4 font-medium">© 2025 Ясный слух. Все права защищены.</p>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setShowAdminLogin(true)}
+              className="text-xs opacity-40 hover:opacity-100 transition-opacity"
+            >
+              <Icon name="Lock" size={14} className="mr-1" />
+              Админ-панель
+            </Button>
+          </div>
         </div>
       </footer>
 

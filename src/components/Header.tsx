@@ -19,8 +19,8 @@ export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b-2 border-primary/20 shadow-md">
-      <div className="container mx-auto px-4 py-3">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-primary/15 shadow-sm">
+      <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 sm:gap-3">
             <img 
@@ -44,41 +44,46 @@ export const Header = ({ activeSection, onSectionChange }: HeaderProps) => {
             <Button
               variant={activeSection === 'home' ? 'default' : 'ghost'}
               onClick={() => onSectionChange('home')}
-              className="hover-scale"
+              className="hover-scale font-semibold"
+              size="sm"
             >
               Главная
             </Button>
             <Button
               variant={activeSection === 'catalog' ? 'default' : 'ghost'}
               onClick={() => onSectionChange('catalog')}
-              className="hover-scale"
+              className="hover-scale font-semibold"
+              size="sm"
             >
               Каталог
             </Button>
             <Button
               variant={activeSection === 'services' ? 'default' : 'ghost'}
               onClick={() => onSectionChange('services')}
-              className="hover-scale"
+              className="hover-scale font-semibold"
+              size="sm"
             >
               Услуги
             </Button>
             <Button
               variant={activeSection === 'about' ? 'default' : 'ghost'}
               onClick={() => onSectionChange('about')}
-              className="hover-scale"
+              className="hover-scale font-semibold"
+              size="sm"
             >
               О компании
             </Button>
             <Button
               variant={activeSection === 'articles' ? 'default' : 'ghost'}
               onClick={() => onSectionChange('articles')}
-              className="hover-scale"
+              className="hover-scale font-semibold"
+              size="sm"
             >
               Статьи
             </Button>
             <Button
               onClick={() => setShowContactDialog(true)}
-              className="bg-primary hover:bg-primary/90"
+              className="bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg"
               data-appointment-button
             >
               <Icon name="Calendar" size={18} className="mr-2" />

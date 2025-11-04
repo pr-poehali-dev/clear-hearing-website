@@ -10,51 +10,72 @@ interface HomeProps {
 export const Home = ({ onNavigate }: HomeProps) => {
   return (
     <div>
-      <section className="py-16 sm:py-24 px-4 bg-gradient-to-br from-primary/10 via-white to-accent/10 animate-fade-in">
-        <div className="container mx-auto text-center max-w-4xl">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold mb-5 sm:mb-7 text-foreground animate-scale-in leading-tight tracking-tight">
-            Верните радость слышать мир
+      <section className="relative py-20 sm:py-32 px-4 overflow-hidden animate-fade-in">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-white"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container mx-auto text-center max-w-5xl relative z-10">
+          <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full text-primary font-semibold text-sm animate-scale-in">
+            🎧 Профессиональная слухопротезирование
+          </div>
+          
+          <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 sm:mb-8 text-foreground animate-scale-in leading-tight">
+            Верните радость<br />слышать мир
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>Современные слуховые аппараты высокого качества. Индивидуальный подбор, настройка и сервисное обслуживание.</p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-10 sm:mb-12 leading-relaxed max-w-3xl mx-auto animate-fade-in font-medium" style={{ animationDelay: '0.2s' }}>
+            Современные слуховые аппараты высокого качества.<br className="hidden sm:block" />
+            Индивидуальный подбор, настройка и сервисное обслуживание.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <Button
               size="lg"
               onClick={() => onNavigate('catalog')}
-              className="bg-primary hover:bg-primary/90 text-base px-8 py-6 rounded-xl font-medium shadow-lg hover:shadow-xl transition-all w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 text-lg px-10 py-7 rounded-xl font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all w-full sm:w-auto"
             >
+              <Icon name="ShoppingBag" size={20} className="mr-2" />
               Смотреть каталог
             </Button>
             <Button
               size="lg"
               variant="outline"
               onClick={() => onNavigate('services')}
-              className="text-base px-8 py-6 rounded-xl font-medium border-2 hover:bg-accent/50 transition-all w-full sm:w-auto"
+              className="text-lg px-10 py-7 rounded-xl font-bold border-2 border-primary/30 hover:bg-primary/10 hover:border-primary transition-all w-full sm:w-auto"
             >
+              <Icon name="Stethoscope" size={20} className="mr-2" />
               Наши услуги
             </Button>
           </div>
         </div>
       </section>
 
-      <section className="py-12 sm:py-20 px-4 bg-white">
+      <section className="py-16 sm:py-24 px-4 bg-gradient-to-b from-white via-primary/5 to-white">
         <div className="container mx-auto max-w-6xl">
           <Tabs defaultValue="delivery" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-6 sm:mb-8">
-              <TabsTrigger value="delivery" className="text-sm sm:text-base md:text-lg">Доставка и оплата</TabsTrigger>
-              <TabsTrigger value="contacts" className="text-sm sm:text-base md:text-lg">Контакты</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 mb-8 sm:mb-12 p-2 bg-white shadow-md rounded-2xl">
+              <TabsTrigger value="delivery" className="text-sm sm:text-base md:text-lg font-bold rounded-xl py-3 data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-lg">
+                Доставка и оплата
+              </TabsTrigger>
+              <TabsTrigger value="contacts" className="text-sm sm:text-base md:text-lg font-bold rounded-xl py-3 data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-lg">
+                Контакты
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="delivery" className="animate-fade-in">
               <div className="space-y-8 sm:space-y-12">
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">Доставка</h3>
-                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-                    <Card className="hover-scale">
-                      <CardContent className="pt-6 text-center">
-                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                          <Icon name="Package" className="text-primary" size={32} />
+                  <h3 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-foreground">Доставка</h3>
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                    <Card className="hover-scale group">
+                      <CardContent className="pt-8 pb-8 text-center">
+                        <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg group-hover:scale-110 transition-transform">
+                          <Icon name="Package" className="text-white" size={36} />
                         </div>
-                        <h4 className="text-xl font-semibold mb-3">Самовывоз</h4>
+                        <h4 className="text-2xl font-bold mb-4 text-foreground">Самовывоз</h4>
                         <p className="text-muted-foreground mb-4">
                           Вы можете забрать свой заказ в нашем центре слухопротезирования.
                         </p>
